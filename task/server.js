@@ -22,15 +22,14 @@ http
         let formdata = Buffer.concat(formData).toString();
 
         let getData = async () => {
-          console.log(formdata);
-          console.log("hi");
+          
           let presentData = await fs.writeFile("./data.txt", formData);
-          formDataNew = formData + ";" + presentData;
+         let  formDataNew = formData + ";" + presentData;
           await fs.writeFile("./data.txt", formDataNew);
         };
         getData();
       });
-      //   res.write(JSON.stringify(data));
+      
       res.end(JSON.stringify(data));
     } catch (err) {
       console.log(err);
